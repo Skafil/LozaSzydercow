@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Loża Szyderców</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+</head>
+<body>
+	<h1>Loża Szyderców - {{ post.title }}</h1>
+	<p>{{ post.content }}</p>
+	<h2>Komentarze</h2>
+	{% for comment in post.comments.all %}
+		<p><strong>{{ comment.author }}</strong>: {{ comment.content }}</p>
+	{% endfor %}
+	
+	{% if user.is_authenticated %}
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Dodaj komentarz</button>
+		</form>
+		<a href="{% url 'post_list' %}">Wróć</a>
+	{% else %}
+		<p><a href="{% url 'login' %}">Logowanie</a></p>
+	{% endif %}
+</body>
+</html>
