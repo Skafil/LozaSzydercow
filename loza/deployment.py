@@ -4,7 +4,7 @@ from .settings import BASE_DIR
 
 SECRET_KEY = os.environ['SECRET']
 ALLOWED_HOSTS = ['lozaszydercow3-dxh2b7gdb4a4bfat.northeurope-01.azurewebsites.net']
-CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']]
+CSRF_TRUSTED_ORIGINS = ['https://lozaszydercow3-dxh2b7gdb4a4bfat.northeurope-01.azurewebsites.net']
 DEBUG = True
 
 MIDDLEWARE = [
