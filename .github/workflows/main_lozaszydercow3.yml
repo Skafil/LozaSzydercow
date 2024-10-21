@@ -33,9 +33,6 @@ jobs:
       - name: Collectstatic
         run: python manage.py collectstatic
         
-      - name: Debug me plz
-        run: python -c "import os;print(os.environ)"
-        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
@@ -48,6 +45,9 @@ jobs:
           path: |
             release.zip
             !venv/
+            
+      - name: Debug me plz
+        run: python -c "import os;print(os.environ)"
 
   deploy:
     runs-on: ubuntu-latest
