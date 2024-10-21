@@ -27,7 +27,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgreql',
         'NAME': os.environ['AZURE_MYSQL_NAME'],
         'USER': os.environ['AZURE_MYSQL_USER'],
         'PASSWORD': os.environ['AZURE_MYSQL_PASSWORD']#'N$qeo$CNoRstcKof',
