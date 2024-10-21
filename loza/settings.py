@@ -11,18 +11,19 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET']
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else []
-CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else []
+SECRET_KEY = os.getenv['SECRET_KEY']
+ALLOWED_HOSTS = [os.getenv['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.getenv else []
+CSRF_TRUSTED_ORIGINS = ['https://' + os.getenv['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.getenv else []
 DEBUG = True
 
 
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'loza.wsgi.application'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-connection_string = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
+connection_string = os.getenv['AZURE_POSTGRESQL_CONNECTIONSTRING']
 parameters = {pair.split('=')[0]: pair.split('=')[1] for pair in connection_string.split(' ')}
 
 
