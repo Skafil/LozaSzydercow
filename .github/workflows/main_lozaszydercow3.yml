@@ -34,7 +34,7 @@ jobs:
         run: python manage.py collectstatic
         
       - name: Debug me plz
-        run: python -c "print(os.environ)"
+        run: python -c "import os;print(os.environ)"
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
