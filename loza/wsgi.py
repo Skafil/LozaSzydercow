@@ -11,8 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-settings_module = 'loza.settings' #if 'WEBSITE_HOSTNAME' in os.environ else 'loza.settings'
-
+settings_module = 'loza.production' if 'WEBSITE_HOSTNAME' in os.environ else 'loza.settings'
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_wsgi_application()
