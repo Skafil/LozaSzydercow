@@ -15,13 +15,15 @@
 			{% csrf_token %}
 			<button type="submit">Wyloguj</button>
 		</form>
+		
+		{% for post in posts %}
+			<h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }} </a></h2>
+			<p>{{ post.content|truncatewords:30 }}</p>
+		{% endfor %}
 	{% else %}
 		<a href="{% url 'register' %}">Rejestracja</a>
 		<a href="{% url 'login' %}">Logowanie</a>
 	{% endif %}
-	{% for post in posts %}
-		<h2><a href="{%url 'post_detail' post.pk %}">{{ post.title }} </a></h2>
-		<p>{{ post.content|truncatewords:30 }}</p>
-	{% endfor %}
+	
 </body>
 </html>
