@@ -5,9 +5,9 @@ from .settings import BASE_DIR
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'], 'lozaszydercow4.pl', 'www.lozaszydercow4.pl'] if 'WEBSITE_HOSTNAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'], 'lozaszydercow5.pl', 'www.lozaszydercow5.pl'] if 'WEBSITE_HOSTNAME' in os.environ else []
 
-CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME'], 'https://lozaszydercow4.pl', 'https://www.lozaszydercow4.pl'] if 'WEBSITE_HOSTNAME' in os.environ else []
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME'], 'https://lozaszydercow5.pl', 'https://www.lozaszydercow5.pl'] if 'WEBSITE_HOSTNAME' in os.environ else []
 
 
 
