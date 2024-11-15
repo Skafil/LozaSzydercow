@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Create and start virtual environment
         run: |
@@ -29,9 +29,6 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
-      - name: Collectstatic
-        run: python manage.py collectstatic
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -68,9 +65,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0D3B814F00EF496098DBD30B70B790F3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2EA622851D3C407985AFF1875B81339C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3069AAD3F4A047FA997E15A037DEF79E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_63EBFACE4E2148288C8544EC15C204B0 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_89D1CFF75A4D418F9B2D92634B814129 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ECE01D94A809466E860AE2B6FB41E70E }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
